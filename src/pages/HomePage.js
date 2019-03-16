@@ -1,9 +1,9 @@
 import React from 'react';
-import CounterContainer from 'containers/CounterContainer';
+import CanteenContainer from 'containers/CanteenContainer';
 
 const HomePage = () => (
   <div>
-    <CounterContainer />
+    <CanteenContainer />
   </div>
 );
 
