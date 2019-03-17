@@ -1,16 +1,15 @@
 import { connect } from 'react-redux';
 import Canteen from 'components/Canteen';
-import * as canteen from 'modules/canteens';
+import * as canteens from 'modules/canteens';
+import * as cart from 'modules/cart';
 
 const mapStateToProps = state => ({
-  canteens: state.canteens.items,
-  selectedCanteenUid: state.canteens.selectedUid,
+  canteen: canteens.currentCanteenSelector(state),
   dishes: state.dishes.items,
 });
 
 const mapDispatchToProps = {
-  onClickGetCanteens: canteen.getCanteensStart,
-  onChangeCanteen: canteen.setSelectedCanteen,
+  addToCart: cart.addToCart,
 };
 
 export default connect(

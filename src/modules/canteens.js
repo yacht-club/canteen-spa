@@ -5,9 +5,20 @@ import status from 'constants/status';
 
 const defaultState = {
   items: [],
-  selectedUid: null,
   status: status.WAITING,
 };
+
+export const currentCanteenUidSelector = state => {
+  try {
+    const match = state.router.location.pathname.match(/\/canteens\/([\w-]+)/);
+    return match[1];
+  } catch {
+    return null;
+  }
+};
+
+export const currentCanteenSelector = state =>
+  state.canteens.items.find(item => item.canteenUid === currentCanteenUidSelector(state)) || {};
 
 export const GET_CANTEENS_START = 'CANTEENS/GET_CANTEENS/START';
 export const getCanteensStart = () => ({ type: GET_CANTEENS_START });
@@ -17,9 +28,6 @@ export const getCanteensSucceeded = ({ items }) => ({ type: GET_CANTEENS_SUCCEED
 
 export const GET_CANTEENS_FAILED = 'CANTEENS/GET_CANTEENS/FAILED';
 export const getCanteensFailed = () => ({ type: GET_CANTEENS_FAILED });
-
-export const SET_SELECTED_CANTEEN = 'CANTEENS/SET_SELECTED';
-export const setSelectedCanteen = ({ value }) => ({ type: SET_SELECTED_CANTEEN, value });
 
 export const reducer = createReducer(defaultState, {
   [GET_CANTEENS_START]: state =>
@@ -36,10 +44,5 @@ export const reducer = createReducer(defaultState, {
   [GET_CANTEENS_FAILED]: state =>
     update(state, {
       status: { $set: status.FAILED },
-    }),
-
-  [SET_SELECTED_CANTEEN]: (state, payload) =>
-    update(state, {
-      selectedUid: { $set: payload.value },
     }),
 });

@@ -1,9 +1,9 @@
 import React from 'react';
-import CanteenContainer from 'containers/CanteenContainer';
+import CanteensListContainer from 'containers/CanteensListContainer';
 
 const HomePage = () => (
   <div>
-    <CanteenContainer />
+    <CanteensListContainer />
   </div>
 );
 

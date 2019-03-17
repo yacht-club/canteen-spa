@@ -1,10 +1,5 @@
 import React from 'react';
-import CounterContainer from 'containers/CounterContainer';
 
-const NotFoundPage = () => (
-  <div>
-    <CounterContainer />
-  </div>
-);
+const NotFoundPage = () => <div>Not Found</div>;
 
 export default NotFoundPage;
