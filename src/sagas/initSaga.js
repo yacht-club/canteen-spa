@@ -1,10 +1,12 @@
 import { put, takeLatest, select, call } from 'redux-saga/effects';
 import * as canteens from 'modules/canteens';
 import * as dishes from 'modules/dishes';
+import * as filters from 'modules/filters';
 import * as selectors from 'modules/selectors';
 
 function* initApp() {
   yield put(canteens.getCanteensStart());
+  yield put(filters.getFiltersStart());
 }
 
 function* fetchCanteenDishes() {

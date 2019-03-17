@@ -12,7 +12,7 @@ function* getCanteensStart() {
       })
     );
   } catch (e) {
-    console.error(e);
+    yield put(canteens.getCanteensFailed());
   }
 }
 

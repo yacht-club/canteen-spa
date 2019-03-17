@@ -2,7 +2,6 @@ import update from 'immutability-helper';
 
 import createReducer from 'utils/createReducer';
 import status from 'constants/status';
-import { currentCanteenUidSelector } from './canteens';
 
 const defaultState = {
   items: [],
@@ -23,6 +22,7 @@ export const reducer = createReducer(defaultState, {
   [GET_DISHES_START]: state =>
     update(state, {
       status: { $set: status.LOADING },
+      items: { $set: [] },
     }),
 
   [GET_DISHES_SUCCEEDED]: (state, payload) =>
@@ -38,9 +38,4 @@ export const reducer = createReducer(defaultState, {
       items: { $set: [] },
       canteenUid: { $set: null },
     }),
-
-  '@@router/LOCATION_CHANGE': state =>
-    currentCanteenUidSelector(state) && currentCanteenUidSelector(state) !== state.canteenUid
-      ? update(state, { items: { $set: [] }, status: { $set: status.WAITING } })
-      : state,
 });

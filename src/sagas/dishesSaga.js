@@ -15,7 +15,7 @@ function* getDishesStart(action) {
       })
     );
   } catch (e) {
-    console.error(e);
+    yield put(dishes.getDishesFailed());
   }
 }
 
