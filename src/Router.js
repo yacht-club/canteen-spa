@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import HomePage from 'pages/HomePage';
 import CanteenPage from 'pages/CanteenPage';
 import NotFoundPage from 'pages/NotFoundPage';
-import Header from 'components/Header';
+import Header from 'containers/HeaderContainer';
 import CartPage from 'pages/CartPage';
 
 const RootRouter = ({ history }) => (
