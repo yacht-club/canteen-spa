@@ -1,0 +1,70 @@
+.flex-container {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.flex-item {
+    margin: 10px 10px;
+    width: calc(33% - 10 * 2px);
+}
+
+@media (max-width: 800px) and (min-width: 500px) {
+    .flex-item {
+        width: calc(50% - 3 * 2px);
+    }
+}
+
+@media (max-width: 500px) {
+    .flex-item {
+        width: calc(100% - 2 * 2px);
+    }
+}
+
+.canteens-list-item a {
+    text-decoration: none;
+}
+
+.canteen-img-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.canteen-img {
+    background: 50% 50% no-repeat;
+    height: 300px;
+}
+
+.canteen-name {
+    position: absolute;
+    bottom: 20%;
+    padding: 4px 16px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    background-color: darkorange;
+}
+
+.canteen-location {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: grey;
+}
+
+.canteen-working-hours {
+    float: left;
+    display: inline;
+    color: grey;
+}
+
+.canteen-status-open {
+    float: right;
+    display: inline;
+    padding: 2px 12px;
+    border: 1px solid lightgreen;
+    border-radius: 8px;
+    color: lightgreen;
+}

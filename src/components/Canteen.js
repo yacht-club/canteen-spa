@@ -1,12 +1,12 @@
 import React from 'react';
 
-const CanteensList = ({ canteen, dishes, addToCart, filters, onChangeFilter, onClearFilters }) => (
+const Canteen = ({ canteen, dishes, addToCart, filters, onChangeFilter, onClearFilters }) => (
   <div>
-    <h1>Canteen: {canteen.name}</h1>
+    <h1>{canteen.name}</h1>
     <br />
     <h2>Filters:</h2>
     <button onClick={onClearFilters} type="button">
-      Clear Filters
+      Все блюда
     </button>
     {filters.map(filter => (
       <button onClick={() => onChangeFilter({ value: filter.name })} type="button">
@@ -26,4 +26,4 @@ const CanteensList = ({ canteen, dishes, addToCart, filters, onChangeFilter, onC
   </div>
 );
 
-export default CanteensList;
+export default Canteen;

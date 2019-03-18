@@ -1,0 +1,24 @@
+.header {
+
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.cart {
+     float: right;
+}
+
+.cart-img {
+    width: 20px;
+    margin-right: 8px;
+}
+
+.cart-text {
+    display: table-cell;
+    vertical-align: middle;
+    text-decoration: underline;
+    font-weight: bold;
+    color: black;
+}
