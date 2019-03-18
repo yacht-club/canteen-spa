@@ -72,3 +72,12 @@
     border-radius: 8px;
     color: lightgreen;
 }
+
+.canteen-status-closed {
+    float: right;
+    display: inline;
+    padding: 2px 12px;
+    border: 1px solid red;
+    border-radius: 8px;
+    color: red;
+}

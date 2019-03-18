@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './CanteensList.css';
+import { formatTime, isOpen } from '../utils/timeUtils';
 
 const CanteensList = ({ canteens }) => (
   <div className="canteens-list">
@@ -33,9 +34,13 @@ const CanteensListItem = ({ canteen }) => (
       <div>
         <span className="canteen-location">{canteen.location}</span>
         <span className="canteen-working-hours">
-          с {canteen.workFromMillis} до {canteen.workTillMillis}
+          с {formatTime(canteen.workFromMillis)} до {formatTime(canteen.workTillMillis)}
         </span>
-        <span className="canteen-status-open">Открыто</span>
+        {isOpen(canteen.workFromMillis, canteen.workTillMillis) ? (
+          <span className="canteen-status-open">Открыто</span>
+        ) : (
+          <span className="canteen-status-closed">Закрыто</span>
+        )}
       </div>
     </Link>
   </div>
