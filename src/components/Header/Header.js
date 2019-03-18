@@ -78,9 +78,11 @@ const Header = ({ categories, selectedCategory, onChangeCategoryFilter, onResetC
 );
 
 const StyledHeader = styled(Header)`
-  padding: 0 20px;
+  padding: 0 20px 20px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 8px 16px -12px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
 
   ${Navbar} {
     margin-bottom: 12px;
