@@ -5,5 +5,4 @@ export const fetchDishes = ({ canteenUid }) =>
     .post('/dishes/search', {
       canteenUid,
     })
-    .then(x => x.data)
-    .then(x => x.content);
+    .then(x => x.data);
