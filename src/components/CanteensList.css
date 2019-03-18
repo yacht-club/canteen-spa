@@ -23,6 +23,10 @@
     }
 }
 
+.canteens-list h1 {
+    font-weight: bold;
+}
+
 .canteens-list-item a {
     text-decoration: none;
 }
