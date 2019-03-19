@@ -57,13 +57,21 @@ const Navbar = styled.div`
   }
 `;
 
-const Header = ({ categories, selectedCategory, onChangeCategoryFilter, onResetCategoryFilter, className, page }) => (
+const Header = ({
+  categories,
+  selectedCategory,
+  onChangeCategoryFilter,
+  onResetCategoryFilter,
+  className,
+  page,
+  cart,
+}) => (
   <div className={className}>
     <Navbar>
       <Title>{page.name || 'Столовые МГТУ'}</Title>
       <CartWrapper>
         <Link to="/cart">
-          <CartIcon /> Моя корзина
+          <CartIcon /> Моя корзина {cart.length ? `(${cart.length})` : null}
         </Link>
       </CartWrapper>
     </Navbar>

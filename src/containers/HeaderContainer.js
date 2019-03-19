@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
   categories: state.filters.availableCategories,
   selectedCategory: state.filters.selectedCategory,
   page: canteens.currentCanteenSelector(state),
+  cart: state.cart.items,
 });
 
 const mapDispatchToProps = {

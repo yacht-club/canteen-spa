@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-const ItemImageContainer = styled.div`
+const ItemImageContainer = styled.button`
   position: relative;
   overflow: hidden;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+
   img {
-    background: 50% 50% no-repeat;
-    height: 300px;
+    max-width: 100%;
   }
   span {
     left: 0;
