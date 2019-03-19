@@ -1,7 +1,13 @@
 import React from 'react';
 import Button from 'components/common/Button';
 import styled from 'styled-components';
-import dishIcon from './assets/food.jpeg';
+import defaultDishIcon from './assets/food.jpeg';
+import drinkIcon from './assets/drink.jpg';
+import soupIcon from './assets/soup.jpg';
+import meatIcon from './assets/meat.jpg';
+import saladIcon from './assets/salad.jpg';
+import garnishIcon from './assets/garnish.jpg';
+import dessertIcon from './assets/dessert.jpg';
 import ItemImageContainer from '../common/ItemImageContainer';
 
 const InfoContainer = styled.div`
@@ -22,10 +28,29 @@ const Weight = styled.div`
   color: grey;
 `;
 
+const dishIcon = category => {
+  switch (category) {
+    case `SOUP`:
+      return soupIcon;
+    case `MAINCOURSE`:
+      return meatIcon;
+    case `GARNISH`:
+      return garnishIcon;
+    case `SALAD`:
+      return saladIcon;
+    case `DRINK`:
+      return drinkIcon;
+    case `DESSERT`:
+      return dessertIcon;
+    default:
+      return defaultDishIcon;
+  }
+};
+
 const Dish = ({ dish, canteen, addToCart, className }) => (
   <div className={className}>
     <ItemImageContainer>
-      <img src={dishIcon} alt={dish.name} />
+      <img src={dishIcon(dish.category)} alt={dish.name} />
       <span>{dish.name}</span>
     </ItemImageContainer>
     <InfoContainer>
