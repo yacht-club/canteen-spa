@@ -7,7 +7,7 @@ import SubHeader from './common/SubHeader';
 
 const Canteen = ({ canteen, dishes, addToCart, filters }) =>
   groupBy(dishes, 'category').map(({ category, items }) => (
-    <React.Fragment>
+    <React.Fragment key={category}>
       <SubHeader>
         {filters.find(x => x.name === category) && filters.find(x => x.name === category).description}
       </SubHeader>
@@ -19,7 +19,7 @@ const Canteen = ({ canteen, dishes, addToCart, filters }) =>
               canteen={canteen}
               index={index}
               addToCart={addToCart}
-              onClick={() => console.log('asd')}
+              // onClick={() => console.log('asd')}
             />
           </FlexItem>
         ))}

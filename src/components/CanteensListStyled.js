@@ -57,7 +57,7 @@ const CanteensList = ({ canteens }) => (
           {canteens
             .filter(canteen => canteen.building === building.id)
             .map(canteen => (
-              <FlexItem>
+              <FlexItem key={canteen.building}>
                 <CanteensListItem canteen={canteen} />
               </FlexItem>
             ))}
