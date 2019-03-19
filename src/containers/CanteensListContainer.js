@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import CanteensList from 'components/CanteensList';
+import CanteensListStyled from 'components/CanteensListStyled';
 
 const mapStateToProps = state => ({
   canteens: state.canteens.items,
 });
 
-export default connect(mapStateToProps)(CanteensList);
+export default connect(mapStateToProps)(CanteensListStyled);
