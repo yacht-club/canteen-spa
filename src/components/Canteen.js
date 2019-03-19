@@ -1,17 +1,16 @@
 import React from 'react';
+import Dish from './Dish/index';
+import FlexContainer from './common/FlexContainer';
+import FlexItem from './common/FlexItem';
 
 const Canteen = ({ canteen, dishes, addToCart }) => (
-  <div>
+  <FlexContainer>
     {dishes.map((dish, index) => (
-      <button
-        type="button"
-        key={String(index)}
-        onClick={() => addToCart({ dishUid: dish.dishUid, canteenUid: canteen.canteenUid })}
-      >
-        {dish.name}
-      </button>
+      <FlexItem>
+        <Dish dish={dish} canteen={canteen} index={index} addToCart={addToCart} />
+      </FlexItem>
     ))}
-  </div>
+  </FlexContainer>
 );
 
 export default Canteen;

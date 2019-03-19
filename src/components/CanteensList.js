@@ -2,35 +2,42 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './CanteensList.css';
 import { formatTime, isOpen } from '../utils/timeUtils';
+import ItemImageContainer from './common/ItemImageContainer';
+import FlexContainer from './common/FlexContainer';
+import FlexItem from './common/FlexItem';
 
 const CanteensList = ({ canteens }) => (
   <div className="canteens-list">
     <h1>ГЗ</h1>
-    <section className="flex-container">
+    <FlexContainer>
       {canteens
         .filter(canteen => canteen.building === `GZ`)
         .map(canteen => (
-          <CanteensListItem canteen={canteen} />
+          <FlexItem>
+            <CanteensListItem canteen={canteen} />
+          </FlexItem>
         ))}
-    </section>
+    </FlexContainer>
     <h1>УЛК</h1>
-    <section className="flex-container">
+    <FlexContainer>
       {canteens
         .filter(canteen => canteen.building === `ULK`)
         .map(canteen => (
-          <CanteensListItem canteen={canteen} />
+          <FlexItem>
+            <CanteensListItem canteen={canteen} />
+          </FlexItem>
         ))}
-    </section>
+    </FlexContainer>
   </div>
 );
 
 const CanteensListItem = ({ canteen }) => (
-  <div className="flex-item canteens-list-item">
+  <div className="canteens-list-item">
     <Link key={canteen.canteenUid} to={`/canteens/${canteen.canteenUid}`}>
-      <div className="canteen-img-container">
-        <img src={canteen.imageUrl} alt={canteen.name} className="canteen-img" />
-        <div className="canteen-name">{canteen.name}</div>
-      </div>
+      <ItemImageContainer>
+        <img src={canteen.imageUrl} alt={canteen.name} />
+        <span>{canteen.name}</span>
+      </ItemImageContainer>
       <div>
         <span className="canteen-location">{canteen.location}</span>
         <span className="canteen-working-hours">
