@@ -73,16 +73,16 @@ const CanteensListItem = ({ canteen }) => (
   </React.Fragment>
 );
 
-const CanteensList = ({ canteens }) => (
-  <div>
+const CanteensList = ({ canteens, className }) => (
+  <div className={className}>
     {buildings.map(building => (
-      <React.Fragment>
+      <React.Fragment key={building.id}>
         <SubHeader>{building.name}</SubHeader>
         <FlexContainer>
           {canteens
             .filter(canteen => canteen.building === building.id)
             .map(canteen => (
-              <FlexItem key={canteen.building}>
+              <FlexItem key={canteen.canteenUid}>
                 <CanteensListItem canteen={canteen} />
               </FlexItem>
             ))}
