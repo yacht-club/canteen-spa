@@ -1,17 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const sumOnField = field => items =>
-  items
-    .map(item => item[field])
-    .reduce((acc, v) => acc + v, 0)
-    .toFixed(1);
+const sumOnField = field => items => items.reduce((acc, v) => acc + (v.weight * v[field]) / 100, 0).toFixed(1);
 
 const Nutritional = ({ className, items }) => (
   <div className={className}>
     <div className="nutrient">Белки: {sumOnField('proteins')(items)}</div>
     <div className="nutrient">Жиры: {sumOnField('fats')(items)}</div>
     <div className="nutrient">Углеводы: {sumOnField('carbohydrates')(items)}</div>
+    <div className="nutrient">Ккал: {sumOnField('calories')(items)}</div>
   </div>
 );
 
