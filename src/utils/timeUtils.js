@@ -9,6 +9,10 @@ export function formatTime(millis) {
 }
 
 export function isOpen(workFromMillis, workTillMillis) {
-  const currentTime = new Date().getTime();
+  const currentDateTime = new Date();
+  const hours = currentDateTime.getHours();
+  const minutes = currentDateTime.getMinutes();
+  const currentTime = hours * 3600 + minutes * 60;
+
   return currentTime >= workFromMillis && currentTime < workTillMillis;
 }
